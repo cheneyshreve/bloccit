@@ -1,3 +1,16 @@
 // Place all the styles related to the welcome controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.fa fa-github-square {
+ height: 150px;
+ width: 150px;
+ font-family: Garamond, Helvetica, sans-serif;
+ font-weight: bold;
+ padding: 5px;
+}
+
+.fa fa-github-square:hover {
+ cursor: pointer;
+}

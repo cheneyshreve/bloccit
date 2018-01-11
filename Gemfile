@@ -24,6 +24,7 @@ group :development do
   gem 'rails-controller-testing'
 end
 
+gem 'font-awesome-rails'
 gem 'bootstrap-sass'
 gem 'rails-controller-testing'
 # Use Puma as the app server
