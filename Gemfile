@@ -22,11 +22,12 @@ end
 group :development do
   gem 'rspec-rails', '~> 3.0'
   gem 'rails-controller-testing'
+  gem 'pry-rails'
 end
 
 gem 'font-awesome-rails'
 gem 'bootstrap-sass'
-gem 'rails-controller-testing'
+# gem 'rails-controller-testing'
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
 # Use SCSS for stylesheets
