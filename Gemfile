@@ -17,12 +17,12 @@ end
 group :development do
   # Use sqlite3 as the development database for Active Record
   gem 'sqlite3'
+  gem 'pry-rails'
 end
 
-group :development do
+group :development, :test do
   gem 'rspec-rails', '~> 3.0'
   gem 'rails-controller-testing'
-  gem 'pry-rails'
 end
 
 gem 'font-awesome-rails'
