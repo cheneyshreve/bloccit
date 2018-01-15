@@ -24,7 +24,7 @@ RSpec.describe QuestionsController, type: :controller do
     end
   end
 
-  describe "GET #show" do
+  describe "GET show" do
     it "returns http success" do
       get :show, params: { id: my_question.id }
       expect(response).to have_http_status(:success)
