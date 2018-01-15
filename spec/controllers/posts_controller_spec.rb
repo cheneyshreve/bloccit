@@ -4,15 +4,14 @@ RSpec.describe PostsController, type: :controller do
   let(:my_post) { Post.create!(title: RandomData.random_sentence, body: RandomData.random_paragraph)}
 
   describe "GET #index" do
-
     it "returns http success" do
       get :index
       expect(response).to have_http_status(:success)
     end
 
-    it "assigns [my_post] to @posts" do
+    it "assigns [my_question] to @questions" do
       get :index
-      expect(assigns(:posts)).to eq([my_post])
+      expect(assigns(:questions)).to eq([my_question])
     end
   end
 
@@ -105,22 +104,6 @@ RSpec.describe PostsController, type: :controller do
     end
   end
 
-<<<<<<< HEAD
-  describe "DELETE destroy" do
-
-    it "deletes the post" do
-      delete :destroy, params: { id: my_post.id }
-      count = Post.where({ id: my_post.id }).size
-      expect(count).to eq 0
-    end
-
-    it "redirects to posts index" do
-      delete :destroy, params: { id: my_post.id }
-      expect(response).to redirect_to posts_path
-    end
-  end
-
-=======
 describe "DELETE destroy" do
   it "deletes the post" do
     delete :destroy, params: { id: my_post.id }
@@ -133,6 +116,6 @@ describe "DELETE destroy" do
     expect(response).to redirect_to posts_path
   end
 end
->>>>>>> checkpoint_08
+
 
 end
