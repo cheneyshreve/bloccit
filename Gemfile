@@ -18,7 +18,7 @@ group :development do
   # Use sqlite3 as the development database for Active Record
   gem 'sqlite3'
   gem 'pry-rails'
-  gem 'shoulda'
+  # gem 'shoulda'
 end
 
 group :development, :test do
@@ -29,6 +29,7 @@ end
 
 gem 'font-awesome-rails'
 gem 'bootstrap-sass'
+gem 'bcrypt'
 # gem 'rails-controller-testing'
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
