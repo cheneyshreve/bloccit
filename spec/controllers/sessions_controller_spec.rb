@@ -41,6 +41,8 @@ RSpec.describe SessionsController, type: :controller do
       expect(response).to redirect_to(root_path)
     end
 
+    # the 2 tests below fail but app functions properly. asked
+    # about it on help and mentor said some folks were getting errors, not 100% sure why and to ask about in next meeting
     it "sets user password_confirmation properly" do
       post :create, params: { user: new_user_attributes }
       expect(assigns(:user).password_confirmation).to eq new_user_attributes[:password_confirmation]
