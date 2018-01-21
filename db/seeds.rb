@@ -29,10 +29,12 @@ posts = Post.all
 
 100.times do
   Comment.create!(
+    user: users.sample,
     post: posts.sample,
     body: RandomData.random_paragraph
   )
 end
+comments = Comment.all
 
 admin = User.create!(
   name: 'Admin User',
@@ -44,7 +46,8 @@ admin = User.create!(
 member = User.create!(
  name: 'Member User',
  email: 'member@example.com',
- password: 'helloworld'
+ password: 'helloworld',
+ role: 'member'
 )
 
 puts "Seed finished"
