@@ -32,6 +32,7 @@ gem 'jquery-rails'
 gem 'font-awesome-rails'
 gem 'bootstrap-sass'
 gem 'bcrypt'
+gem 'figaro', '1.0'
 # gem 'rails-controller-testing'
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
