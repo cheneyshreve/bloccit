@@ -1,3 +1,4 @@
+require 'date'
 class Post < ApplicationRecord
   belongs_to :topic
   belongs_to :user
@@ -25,8 +26,14 @@ class Post < ApplicationRecord
     votes.sum(:value)
   end
 
+  # def update_rank
+  #   age_in_days = (created_at - Time.new(1970,1,1)) / 1.day.seconds
+  #   new_rank = points + age_in_days
+  #   update_attribute(:rank, new_rank)
+  # end
+
   def update_rank
-    age_in_days = (created_at - Time.new(1970,1,1)) / 1.day.seconds
+    age_in_days = ((Time.current - created_at)/1.day.seconds).to_i.ceil
     new_rank = points + age_in_days
     update_attribute(:rank, new_rank)
   end
