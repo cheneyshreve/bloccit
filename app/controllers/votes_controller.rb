@@ -1,10 +1,10 @@
 class VotesController < ApplicationController
   before_action :require_sign_in
 
-  def up_vote
-    update_vote(1)
-    redirect_back(fallback_location: :root)
-  end
+ def up_vote
+  update_vote(1)
+  redirect_back(fallback_location: :root)
+ end
 
  def down_vote
    update_vote(-1)

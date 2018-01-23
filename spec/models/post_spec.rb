@@ -1,14 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe Post, type: :model do
-  let(:name) { RandomData.random_sentence }
-  let(:description) { RandomData.random_paragraph }
-  let(:title) { RandomData.random_sentence }
-  let(:body) { RandomData.random_paragraph }
-  let(:topic) { Topic.create!(name: name, description: description) }
-
-  let(:user) { User.create!(name: "Bloccit User", email: "user@bloccit.com", password: "helloworld") }
-  let(:post) { topic.posts.create!(title: title, body: body, user: user) }
+  let(:topic) { create(:topic) }
+  let(:user) { create(:user) }
+  let(:post) { create(:post) }
 
   it { is_expected.to belong_to(:topic) }
   it { is_expected.to belong_to(:user) }
@@ -26,7 +21,7 @@ RSpec.describe Post, type: :model do
 
  describe "attributes" do
    it "has title and body attributes" do
-     expect(post).to have_attributes(title: title, body: body, user: user)
+     expect(post).to have_attributes(title: post.title, body: post.body)
    end
  end
 
@@ -60,19 +55,19 @@ RSpec.describe Post, type: :model do
 describe "#update_rank" do
   it "calculates the correct rank" do
     post.update_rank
-    expect(post.rank).to eq (post.points + (post.created_at - Time.new(1970,1,1)) / 1.day.seconds)
+    expect(post.rank).to eq(post.points + (post.created_at - Time.new(1970,1,1)) / 1.day.seconds)
   end
 
   it "updates the rank when an up vote is created" do
     old_rank = post.rank
     post.votes.create!(value: 1, user: user)
-    expect(post.rank).to eq (old_rank + 1)
+    expect(post.rank).to eq(old_rank+1)
   end
 
   it "updates the rank when a down vote is created" do
     old_rank = post.rank
     post.votes.create!(value: -1, user: user)
-    expect(post.rank).to eq (old_rank - 1)
+    expect(post.rank).to eq(old_rank-1)
   end
 end
 
